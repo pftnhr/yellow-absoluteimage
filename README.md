@@ -1,4 +1,4 @@
-# Absoluteimage 0.9.1
+# Absoluteimage 0.9.2
 
 Converts image path to absolute URL
 
@@ -16,6 +16,7 @@ to
 
     <img src="https://example.com/media/images/photo.png" ...
 
+Linked images that already have an absolute URL are not affected by this.
 
 ## Acknowledgements
 

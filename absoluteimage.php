@@ -2,7 +2,7 @@
 // Absoluteimage extension, experimental
 
 class YellowAbsoluteimage {
-    const VERSION = "0.9.1";
+    const VERSION = "0.9.2";
     public $yellow;         //access to API
 
     // Handle initialisation
@@ -17,9 +17,12 @@ class YellowAbsoluteimage {
             $scheme = $this->yellow->system->get("coreServerScheme");
             $address = $this->yellow->system->get("coreServerAddress");            
                 $callback = function ($matches) use ($scheme, $address) {
-                    $url = $matches[1];
-                    $url = $this->yellow->lookup->normaliseUrl($scheme, $address, $matches[1], false);
-                    return "<img src=\"$url\"";
+                    if (!preg_match("/^(https?:\/\/)/i", $matches[1])) {
+                        $url = $this->yellow->lookup->normaliseUrl($scheme, $address, $matches[1], false);
+                        return "<img src=\"$url\"";
+                    } else {
+                        return "<img src=\"$matches[1]\"";
+                    }
                 };
                 $output = preg_replace_callback("/<img src=\"(.*?)\"/i", $callback, $text);
             }
