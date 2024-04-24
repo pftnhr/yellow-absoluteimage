@@ -16,7 +16,7 @@ class YellowAbsoluteimage {
         if (!preg_match("/draft/i", $page->get("status"))) {
             $scheme = $this->yellow->system->get("coreServerScheme");
             $address = $this->yellow->system->get("coreServerAddress");            
-                $callback = function ($matches) use ($thisCompatible, $scheme, $address) {
+                $callback = function ($matches) use ($scheme, $address) {
                     $url = $matches[1];
                     $url = $this->yellow->lookup->normaliseUrl($scheme, $address, $matches[1], false);
                     return "<img src=\"$url\""; // HTML-Tag für das Bild mit absoluter URL
