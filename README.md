@@ -10,11 +10,11 @@ Converts image path to absolute URL
 
 Converts
 
-    /media/images/photo.png
+    <img src"/media/images/photo.png" ...
 
 to 
 
-    https://example.com/media/images/photo.png
+    <img src="https://example.com/media/images/photo.png" ...
 
 
 ## Acknowledgements
