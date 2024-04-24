@@ -19,7 +19,7 @@ class YellowAbsoluteimage {
                 $callback = function ($matches) use ($scheme, $address) {
                     $url = $matches[1];
                     $url = $this->yellow->lookup->normaliseUrl($scheme, $address, $matches[1], false);
-                    return "<img src=\"$url\""; // HTML-Tag für das Bild mit absoluter URL
+                    return "<img src=\"$url\"";
                 };
                 $output = preg_replace_callback("/<img src=\"(.*?)\"/i", $callback, $text);
             }
